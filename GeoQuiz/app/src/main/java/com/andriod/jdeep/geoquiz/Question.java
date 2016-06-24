@@ -1,7 +1,7 @@
 package com.andriod.jdeep.geoquiz;
 
 /**
- * Created by Jdeep on 6/24/2016.
+ * Created by @Jdeep on 6/24/2016.
  */
 public class Question {
     //holds the resource id of the sting resource
