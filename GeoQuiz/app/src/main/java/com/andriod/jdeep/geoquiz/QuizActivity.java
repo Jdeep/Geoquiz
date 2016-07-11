@@ -13,6 +13,7 @@ package com.andriod.jdeep.geoquiz;
 public class QuizActivity extends AppCompatActivity
 {
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
@@ -55,11 +56,16 @@ public class QuizActivity extends AppCompatActivity
     }
     @Override
 
-    protected void onCreate(Bundle savedInstanceState)
+    protected void onCreate(final Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"onCreate(Bundle) called");
         setContentView(R.layout.activity_quiz);
+        //keeps current state instead on restarting app on orientation change
+        if(savedInstanceState !=null)
+        {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
 
@@ -123,7 +129,14 @@ public class QuizActivity extends AppCompatActivity
         });
         updateQuestion();
     }
-
+    //overrides state of the app and saves the current state
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState)
+    {
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
+    }
     @Override
     public void onStart()
     {
