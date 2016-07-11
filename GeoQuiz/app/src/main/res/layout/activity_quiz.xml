@@ -3,7 +3,11 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_gravity="center"
-              android:orientation="vertical" >
+              android:orientation="vertical"
+              android:weightSum="1"
+              android:minHeight="@dimen/abc_action_button_min_width_overflow_material"
+              android:measureWithLargestChild="true"
+              android:padding="6dp">
 
 
     <TextView
@@ -11,12 +15,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="top|center"
+        android:layout_marginBottom="20dp"
+        android:clickable="false"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp">
         <Button
             android:id="@+id/true_button"
             android:layout_width="wrap_content"
@@ -27,25 +33,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/false_button"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
-        <Button
+        android:layout_gravity="center"
+        android:layout_weight="0.11">
+    <Button
             android:id="@+id/previous_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/previous_button"
-            />
-        <Button
-            android:id="@+id/next_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/next_button"/>
+            android:drawableLeft="@drawable/arrow_left"
+            android:drawablePadding="4dp"/>
 
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_button"
+        android:drawableRight="@drawable/arrow_right"
+        android:drawablePadding="4dp"/>
 
-    </LinearLayout>
-
+</LinearLayout>
 </LinearLayout>
