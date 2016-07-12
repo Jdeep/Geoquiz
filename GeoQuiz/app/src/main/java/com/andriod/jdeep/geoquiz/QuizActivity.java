@@ -1,6 +1,7 @@
 package com.andriod.jdeep.geoquiz;
 
 
+        import android.content.Intent;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.util.Log;
@@ -10,6 +11,8 @@ package com.andriod.jdeep.geoquiz;
         import android.widget.TextView;
         import android.widget.Toast;
 
+        import com.jdeep.andriod.geoquiz.CheatActivity;
+
 public class QuizActivity extends AppCompatActivity
 {
     private static final String TAG = "QuizActivity";
@@ -18,6 +21,7 @@ public class QuizActivity extends AppCompatActivity
     private Button mFalseButton;
     private Button mNextButton;
     private Button mPreviousButton;
+    private Button mCheatButton;
     private TextView mQuestionTextView;
 
 
@@ -62,14 +66,11 @@ public class QuizActivity extends AppCompatActivity
         Log.d(TAG,"onCreate(Bundle) called");
         setContentView(R.layout.activity_quiz);
         //keeps current state instead on restarting app on orientation change
-        if(savedInstanceState !=null)
-        {
-            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
-        }
+
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
 
-        //define button
+        //define true button
         mTrueButton = (Button) findViewById(R.id.true_button);
         //set listeners
         mTrueButton.setOnClickListener(new View.OnClickListener()
@@ -127,6 +128,23 @@ public class QuizActivity extends AppCompatActivity
                 }
             }
         });
+        //Cheat Button
+            mCheatButton = (Button)findViewById(R.id.cheat_button);
+            mCheatButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    //start cheat activity
+                        Intent i =new Intent(QuizActivity.this, CheatActivity.class);
+                        startActivity(i);
+                }
+            });
+        //
+        if(savedInstanceState !=null)
+        {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
         updateQuestion();
     }
     //overrides state of the app and saves the current state
