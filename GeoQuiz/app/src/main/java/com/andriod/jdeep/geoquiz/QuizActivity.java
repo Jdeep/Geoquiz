@@ -41,7 +41,7 @@ public class QuizActivity extends AppCompatActivity
     private void checkAnswer(boolean userPressedTrue)
     {
         boolean answerISTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
-        int messageResId = 0;
+        int messageResId;
 
         if(userPressedTrue == answerISTrue)
         {
