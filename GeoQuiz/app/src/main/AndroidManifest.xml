@@ -8,8 +8,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".QuizActivity">
+        android:theme="@style/AppTheme"
+        android:configChanges="keyboardHidden|orientation">
+        <activity android:name=".QuizActivity"
+                  android:configChanges="keyboardHidden|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -19,7 +21,8 @@
         <activity
             android:name="com.jdeep.andriod.geoquiz.CheatActivity"
             android:label="@string/title_activity_cheat"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="keyboardHidden|orientation">
         </activity>
     </application>
 
